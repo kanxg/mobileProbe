@@ -1,0 +1,139 @@
+package com.xingang.androidpp30;
+
+import java.util.LinkedList;
+import android.os.Handler;
+import android.util.Log;
+
+public class SipPP30StatusThread extends Thread
+	{
+	static final String STOP_POLLING    = new String ( "QT:" );
+	
+	Handler				m_statusHandler = null;
+	Runnable			m_runnable		= null;
+	LinkedList<String>	m_statusQueue	= null;
+	
+	SipPP30StatusThread ( Handler aHandler, Runnable aRunnable )
+	 	{
+		m_statusQueue 	= new LinkedList<String> ( );
+		m_statusHandler = aHandler;
+		m_runnable 		= aRunnable;		
+		}
+	
+	private 
+	boolean AddStatus ( String[] statusStrings ) 
+		{
+		boolean	terminate = false;
+		
+		if ( statusStrings.length > 0 )
+			{
+			boolean	postresults = false;
+			
+			synchronized ( m_statusQueue )
+				{
+				boolean bWasEmpty  = m_statusQueue.isEmpty();
+				
+		    	for ( int i=0; i<statusStrings.length; i++ )
+		    		{
+		    		// Terminate if the end-of-stream marker was retrieved
+		    		
+		    		if ( statusStrings[i].startsWith ( STOP_POLLING, 0 ) )
+		    			{
+		    			m_statusQueue.clear();
+		    			terminate = true;
+		    			break;
+		    			}
+		
+		 			m_statusQueue.addLast ( statusStrings[i] );
+		    		}
+				
+				if ( bWasEmpty && !m_statusQueue.isEmpty() )
+					postresults = true;
+				}
+			
+			if ( postresults && !terminate )
+				m_statusHandler.post ( m_runnable );
+			}
+		
+		return terminate;
+		}
+
+	public 
+	int	GetStatus ( LinkedList<String> returnedStatus ) 
+		{
+		int	count = 0;
+
+		synchronized ( m_statusQueue )
+			{
+			while ( !m_statusQueue.isEmpty() )
+				{
+				returnedStatus.addLast ( m_statusQueue.removeFirst() );
+				count++;
+				}
+			}
+		
+		return count;
+		}
+	
+	//	Thread/Runnable method.
+	//	Our forever loop
+	
+	@Override
+	public 
+	void run() 
+		{
+		Log.d ( "PP30Lite", "thread starting run()" );
+//		String str[] = {
+//		"CN:SC:ETH:1296839285:Connection status:134.64.85.174:5062:opened",
+//		"RG:IF:1296839285:Initiating registration.",
+//		"RG:IF:1296839285:Received: 100 Trying",
+//		"RG:SC:1296839285:Registration success.",
+//		"CS:IF:1296839393:Incoming call from sip:user01@inetint.com",
+//		"CS:IF:1296839393:Responding with American English Female w/o Fax",
+//		"MD:IF:1296839428:DIRECTION=OD PKT_RCVD=1749 pe=1749 PKT_SENT=1750 RT_MAX=8.000000 RT_MIN=4.000000 RT_AVG=6.142857 RT_DEV=1.456863 RT_RTCP_MAX=8.000000 RT_RTCP_MIN=4.000000 RT_RTCP_AVG=6.142857 RT_RTCP_DEV=1.456863 RT_SSRC_MAX=- RT_SSRC_MIN=- RT_SSRC_AVG=- RT_SSRC_DEV=- JTR_MAX=0.000000 JTR_MIN=0.000000 JTR_AVG=0.000000 JTR_DEV=0.000000 PKT_LOST=0 PKT_LS_MAX=0.000000 PKT_LS_MIN=0.000000 PKT_LS_AVG=0.000000 PKT_LS_DEV=0.000000 RTCP_RR=8 BYTES_RCVD=280000 JBUFF_MIN=40 JBUFF_MAX=40 PKT_DISC=0 PKT_DC_AVG=0.000000 PKT_DC_MIN=0.000000 PKT_DC_MAX=0.000000 PKT_DC_DEV=0.000000 PKT_OUT=0 POR_AVG=0.000000 POR_MIN=0.000000 POR_MAX=0.000000 POR_DEV=0.000000 PKT_DUP=0 PDUP_AVG=0.000000 PDUP_MIN=0.000000 PDUP_MAX=0.000000 PDUP_DEV=0.000000 JBUFF_MIN_LO=20 JBUFF_MIN_HI=40 JBUFF_MAX_LO=40 JBUFF_MAX_HI=60 BURST_DUR_MIN=0 BURST_DUR_MAX=0 GAP_DUR_MIN=4939 GAP_DUR_MAX=4980 BURST_DS_MIN=0.000000 BURST_DS_MAX=0.000000 BURST_DS_AVG=0.000000 BURST_DS_DEV=0.000000 GAP_DS_MIN=0.000000 GAP_DS_MAX=0.000000 GAP_DS_AVG=0.000000 GAP_DS_DEV=0.000000 R_FACTOR=93.119789 MOS_R=2.907728 R_FACTOR_LQ=93.341884 MOS_R_LQ=4.412015 MOS_J=3.853449 GOB=98.100000 POW=0.100000 EMODEL_RO=94.768822 EMODEL_IS=1.426937 EMODEL_ID=0.222095 EMODEL_IEEFF=0.000000 EMODEL_PDC_IMPACT=0.000000 EMODEL_PL_IMPACT=0.000000",
+//		"MD:IF:1296839428:DIRECTION=DO PKT_RCVD=1708 pe=1708 PKT_SENT=1708 RT_MAX=- RT_MIN=- RT_AVG=- RT_DEV=- RT_RTCP_MAX=- RT_RTCP_MIN=- RT_RTCP_AVG=- RT_RTCP_DEV=- RT_SSRC_MAX=- RT_SSRC_MIN=- RT_SSRC_AVG=- RT_SSRC_DEV=- JTR_MAX=6.000000 JTR_MIN=6.000000 JTR_AVG=6.000000 JTR_DEV=0.000000 PKT_LOST=0 PKT_LS_MAX=0.000000 PKT_LS_MIN=0.000000 PKT_LS_AVG=0.000000 PKT_LS_DEV=0.000000 RTCP_RR=7 BYTES_RCVD=273280 JBUFF_MIN=60 JBUFF_MAX=60 PKT_DISC=0 PKT_DC_AVG=0.000000 PKT_DC_MIN=0.000000 PKT_DC_MAX=0.000000 PKT_DC_DEV=0.000000 PKT_OUT=0 POR_AVG=0.000000 POR_MIN=0.000000 POR_MAX=0.000000 POR_DEV=0.000000 PKT_DUP=0 PDUP_AVG=0.000000 PDUP_MIN=0.000000 PDUP_MAX=0.000000 PDUP_DEV=0.000000 JBUFF_MIN_LO=20 JBUFF_MIN_HI=60 JBUFF_MAX_LO=60 JBUFF_MAX_HI=60 BURST_DUR_MIN=0 BURST_DUR_MAX=0 GAP_DUR_MIN=4201 GAP_DUR_MAX=4981 BURST_DS_MIN=0.000000 BURST_DS_MAX=0.000000 BURST_DS_AVG=0.000000 BURST_DS_DEV=0.000000 GAP_DS_MIN=79.687500 GAP_DS_MAX=79.687500 GAP_DS_AVG=79.687500 GAP_DS_DEV=0.000000 R_FACTOR=93.192841 MOS_R=- R_FACTOR_LQ=93.341887 MOS_R_LQ=4.412015 MOS_J=3.854681 GOB=98.100000 POW=0.100000 EMODEL_RO=94.768822 EMODEL_IS=1.426935 EMODEL_ID=0.149046 EMODEL_IEEFF=0.000000 EMODEL_PDC_IMPACT=0.000000 EMODEL_PL_IMPACT=0.000000",
+//		"CS:ER:1296839428: Call failed due to 500 Msg." 
+		
+		
+//		"CN:SC:ETH:1296839285:Connection status:134.64.85.174:5062:opened",
+//		"RG:IF:1296839285:Initiating registration.",
+//		"RG:IF:1296839285:Received: 100 Trying",
+//		"RG:SC:1296839285:Registration success.",
+//		"CS:IF:1296839393:Outgoing call to sip:user01@inetint.com",
+//		"CS:IF:1296839393:payloadType =AMR",
+//		"CS:IF:1296839393:Responding with American English Female w/o Fax",
+//		"DU:IF:1296839393:PDD=1 CST=21 Bill_Dur=35846 Call_Dur=35868",
+//		"MD:IF:1296839428:testid=0000 DIRECTION=OD PKT_RCVD=1749 pe=1749 PKT_SENT=1750 RT_MAX=8.000000 RT_MIN=4.000000 RT_AVG=6.142857 RT_DEV=1.456863 RT_RTCP_MAX=8.000000 RT_RTCP_MIN=4.000000 RT_RTCP_AVG=6.142857 RT_RTCP_DEV=1.456863 RT_SSRC_MAX=- RT_SSRC_MIN=- RT_SSRC_AVG=- RT_SSRC_DEV=- JTR_MAX=0.000000 JTR_MIN=0.000000 JTR_AVG=0.000000 JTR_DEV=0.000000 PKT_LOST=0 PKT_LS_MAX=0.000000 PKT_LS_MIN=0.000000 PKT_LS_AVG=0.000000 PKT_LS_DEV=0.000000 RTCP_RR=8 BYTES_RCVD=280000 JBUFF_MIN=40 JBUFF_MAX=40 PKT_DISC=0 PKT_DC_AVG=0.000000 PKT_DC_MIN=0.000000 PKT_DC_MAX=0.000000 PKT_DC_DEV=0.000000 PKT_OUT=0 POR_AVG=0.000000 POR_MIN=0.000000 POR_MAX=0.000000 POR_DEV=0.000000 PKT_DUP=0 PDUP_AVG=0.000000 PDUP_MIN=0.000000 PDUP_MAX=0.000000 PDUP_DEV=0.000000 JBUFF_MIN_LO=20 JBUFF_MIN_HI=40 JBUFF_MAX_LO=40 JBUFF_MAX_HI=60 BURST_DUR_MIN=0 BURST_DUR_MAX=0 GAP_DUR_MIN=4939 GAP_DUR_MAX=4980 BURST_DS_MIN=0.000000 BURST_DS_MAX=0.000000 BURST_DS_AVG=0.000000 BURST_DS_DEV=0.000000 GAP_DS_MIN=0.000000 GAP_DS_MAX=0.000000 GAP_DS_AVG=0.000000 GAP_DS_DEV=0.000000 R_FACTOR=93.119789 MOS_R=2.907728 R_FACTOR_LQ=93.341884 MOS_R_LQ=4.412015 MOS_J=3.853449 GOB=98.100000 POW=0.100000 EMODEL_RO=94.768822 EMODEL_IS=1.426937 EMODEL_ID=0.222095 EMODEL_IEEFF=0.000000 EMODEL_PDC_IMPACT=0.000000 EMODEL_PL_IMPACT=0.000000",
+//		"MD:IF:1296839428:testid=0000 DIRECTION=DO PKT_RCVD=1708 pe=1708 PKT_SENT=1708 RT_MAX=- RT_MIN=- RT_AVG=- RT_DEV=- RT_RTCP_MAX=- RT_RTCP_MIN=- RT_RTCP_AVG=- RT_RTCP_DEV=- RT_SSRC_MAX=- RT_SSRC_MIN=- RT_SSRC_AVG=- RT_SSRC_DEV=- JTR_MAX=6.000000 JTR_MIN=6.000000 JTR_AVG=6.000000 JTR_DEV=0.000000 PKT_LOST=0 PKT_LS_MAX=0.000000 PKT_LS_MIN=0.000000 PKT_LS_AVG=0.000000 PKT_LS_DEV=0.000000 RTCP_RR=7 BYTES_RCVD=273280 JBUFF_MIN=60 JBUFF_MAX=60 PKT_DISC=0 PKT_DC_AVG=0.000000 PKT_DC_MIN=0.000000 PKT_DC_MAX=0.000000 PKT_DC_DEV=0.000000 PKT_OUT=0 POR_AVG=0.000000 POR_MIN=0.000000 POR_MAX=0.000000 POR_DEV=0.000000 PKT_DUP=0 PDUP_AVG=0.000000 PDUP_MIN=0.000000 PDUP_MAX=0.000000 PDUP_DEV=0.000000 JBUFF_MIN_LO=20 JBUFF_MIN_HI=60 JBUFF_MAX_LO=60 JBUFF_MAX_HI=60 BURST_DUR_MIN=0 BURST_DUR_MAX=0 GAP_DUR_MIN=4201 GAP_DUR_MAX=4981 BURST_DS_MIN=0.000000 BURST_DS_MAX=0.000000 BURST_DS_AVG=0.000000 BURST_DS_DEV=0.000000 GAP_DS_MIN=79.687500 GAP_DS_MAX=79.687500 GAP_DS_AVG=79.687500 GAP_DS_DEV=0.000000 R_FACTOR=93.192841 MOS_R=- R_FACTOR_LQ=93.341887 MOS_R_LQ=4.412015 MOS_J=3.854681 GOB=98.100000 POW=0.100000 EMODEL_RO=94.768822 EMODEL_IS=1.426935 EMODEL_ID=0.149046 EMODEL_IEEFF=0.000000 EMODEL_PDC_IMPACT=0.000000 EMODEL_PL_IMPACT=0.000000",
+//		"RT:IF:1296839428:testid=0000 MOS_POLQA=- REF_FILE=/polqa/RefNB.wav POLQA_STPOS=4.5  POLQA_LENGTH=8.0  TEST_FILE=/sdcard/xingang/androidpp30/polqa/TestNB.wav",
+//		"CS:SC:1296839428: Call success." 
+//		};	
+//		for ( int i = 0; i < str.length; i++ ) {
+//			String s[] = new String[1];
+//			s[0] = str[i];
+//			AddStatus( s );
+//			try {
+//			sleep(1000);
+//			} catch (Exception e) {
+//				
+//			}
+//		}
+		
+        while ( true ) 
+       		{
+       		//	Call the native code to wait for status
+       		//	on the pp30
+       		
+        	String[] statusStrings = SipPP30StatusWait ( );
+
+        	if ( statusStrings.length > 0 )
+        		if ( AddStatus ( statusStrings ) )
+         			break;
+             }
+//
+		Log.d ( "PP30Lite", "thread exiting run()" );
+		
+        }
+	
+	public native 
+	String[] SipPP30StatusWait ( );  
+	}

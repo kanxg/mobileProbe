@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/ScrollView01" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent">
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="wrap_content" android:orientation="vertical" android:layout_width="fill_parent">
+
+<!-- Quick Test -->
+<TextView android:layout_height="wrap_content" android:id="@+id/QtTxt" android:text="Quick Test" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<TextView android:id="@+id/PhoneNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Destination Number:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneNumEdit"></EditText>
+<LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"> 
+<Button android:text="Start Quick Test" android:id="@+id/startQuickTest" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="startQuickTest"></Button>
+<Button android:text="Stop Quick Test" android:id="@+id/stopQuickTest" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="stopQuickTest"></Button>
+</LinearLayout>
+
+<!--  Enable SIP -->
+<TextView android:layout_height="wrap_content" android:id="@+id/SIPTxt" android:text="Enable SIP Agent" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/EnableSIPAgentChkBox" android:text="Enable SIP Agent"></CheckBox>
+
+<!--  SIP End Point Setting -->
+<TextView android:layout_height="wrap_content" android:id="@+id/UserTxt" android:text="SIP End Point Settings" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<TextView android:id="@+id/UserNameTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="User Name:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/UserNameEdit"></EditText>
+<TextView android:id="@+id/AuthPasswordTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Authentication Password:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/AuthPasswordEdit"></EditText>
+
+<!--  Proxy 0 -->
+<TextView android:layout_height="wrap_content" android:id="@+id/ProxiesTxt" android:text="Proxy Settings" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent" ></TextView>
+<TextView android:id="@+id/ProxyIPTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Proxy IP/Host:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/ProxyIPEdit"></EditText>
+<TextView android:id="@+id/ProxyPortTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Proxy Port:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/ProxyPortEdit" android:text="5060" android:inputType="number"></EditText>
+
+
+<!--  Proxy 1 -->
+<TextView android:layout_height="wrap_content" android:id="@+id/ProxiesTxt1" android:text="Proxy (2) Settings" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent" android:visibility="gone"></TextView>
+<TextView android:id="@+id/ProxyIPTxt1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Proxy IP/Host:" android:visibility="gone"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/ProxyIPEdit1" android:visibility="gone"></EditText>
+<TextView android:id="@+id/ProxyPortTxt1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Proxy Port:" android:visibility="gone"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/ProxyPortEdit1" android:text="5060" android:inputType="number" android:visibility="gone"></EditText>
+
+<!--  Proxy 2 -->
+<TextView android:layout_height="wrap_content" android:id="@+id/ProxiesTxt2" android:text="Proxy (3) Settings" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent" android:visibility="gone"></TextView>
+<TextView android:id="@+id/ProxyIPTxt2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Proxy IP/Host:" android:visibility="gone"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/ProxyIPEdit2" android:visibility="gone"></EditText>
+<TextView android:id="@+id/ProxyPortTxt2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Proxy Port:" android:visibility="gone"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/ProxyPortEdit2" android:text="5060" android:inputType="number" android:visibility="gone"></EditText>
+
+<!-- Add / Remove proxies 2 & 3 -->
+ <LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"> 
+
+	<Button android:text="Add Additional Proxy" android:id="@+id/AddAdditionalProxy" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	<Button android:text="Remove Last Proxy" android:id="@+id/RemoveLastProxy" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+</LinearLayout>
+<TextView android:layout_height="wrap_content" android:id="@+id/BreakTxt" android:text="" android:background="@color/LabelBackground" android:layout_width="fill_parent"></TextView>
+
+<!-- General SIP Settings -->
+<TextView android:layout_height="wrap_content" android:id="@+id/UserTxt" android:text="General SIP Settings" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<TextView android:id="@+id/DomainTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Domain:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/DomainEdit"></EditText>
+<TextView android:id="@+id/RealmTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Realm:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/RealmEdit"></EditText>
+<TextView android:id="@+id/AuthUserNameTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Authentication User Name:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/AuthUserNameEdit"></EditText>
+<TextView android:id="@+id/DisplayTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Display Name:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/DisplayNameEdit"></EditText>
+<TextView android:id="@+id/RecordRoutingTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Record Routing:"></TextView>
+<Spinner android:id="@+id/RecordRoutingSpin" android:layout_height="wrap_content" android:layout_width="fill_parent" android:prompt="@string/RecordRoutingPrompt" android:entries="@array/RecordRouting"></Spinner>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/OutboundPortTxt" android:text="Outbound Port Number:"></TextView>
+<EditText android:id="@+id/OutboundPortEdit" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="5060" android:inputType="number"></EditText>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Always Include Port" android:id="@+id/AlwaysIncludePortChkBox"></CheckBox>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/IcludeRPortChkBox" android:text="Include RPort"></CheckBox>
+
+<!--  Registrar -->
+<TextView android:layout_height="wrap_content" android:id="@+id/RegistrarTxt" android:text="Registrar Settings" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<TextView android:id="@+id/RegistrarIPTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Registrar IP/Host:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/RegistrarIPEdit"></EditText>
+<TextView android:id="@+id/RegistrarPortTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Registrar Port:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/RegistrarPortEdit" android:text="5060" android:inputType="number"></EditText>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/RegIntTxt" android:text="Registration Interval(sec):"></TextView>
+<EditText android:id="@+id/RegIntEdit" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="3600" android:inputType="number"></EditText>
+
+<TextView android:layout_height="wrap_content" android:id="@+id/GeneralOptionsTxt" android:text="General Options" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TOSTxt" android:text="Type of Service (TOS):"></TextView>
+<EditText android:id="@+id/TOSEdit" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="01100000" android:inputType="number"></EditText>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/ReferenceFileTxt" android:text="Reference File:"></TextView>
+<Spinner android:id="@+id/ReferenceFileSpin" android:layout_height="wrap_content" android:layout_width="fill_parent" android:prompt="@string/ReferenceFilePrompt" android:entries="@array/ReferenceFile"></Spinner>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/MediaMinPortTxt" android:text="Minimum Media Port Range:"></TextView>
+<EditText android:id="@+id/MediaMinPortEdit" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="5000" android:inputType="number"></EditText>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/MediaMaxPortTxt" android:text="Maximum Media Port Range:"></TextView>
+<EditText android:id="@+id/MediaMaxPortEdit" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="13000" android:inputType="number"></EditText>
+
+<TextView android:layout_height="wrap_content" android:id="@+id/UserTxt" android:text="Media Settings" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/CodecTxt" android:text="Default Codec Type:"></TextView>
+<Spinner android:id="@+id/CodecSpin" android:layout_height="wrap_content" android:layout_width="fill_parent" android:prompt="@string/CodecPrompt" android:entries="@array/CodecList"></Spinner>
+
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/AmrWbPayloadTxt" android:text="AMR-WB Payload Type:"></TextView>
+<EditText android:id="@+id/AmrWbPayloadEdit" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="98" android:inputType="number"></EditText>
+
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/AmrPayloadTxt" android:text="AMR Payload Type:"></TextView>
+<EditText android:id="@+id/AmrPayloadEdit" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="97" android:inputType="number"></EditText>
+
+
+
+</LinearLayout>
+</ScrollView>

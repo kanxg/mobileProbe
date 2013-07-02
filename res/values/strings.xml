@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PPSE Lite(a)</string>
+    <string name="app_name_details"><b>PPSE Lite(a) v2.2 Demo</b>\n</string>   
+	<color name="LabelBackground">#000077</color>
+	<string name="RecordRoutingPrompt">Choose Record Route</string>
+	<string-array name="RecordRouting">
+	        <item>strict</item>
+	        <item>loose</item>
+    </string-array>
+	<string name="ReferenceFilePrompt">Choose Record Route</string>
+	<string-array name="ReferenceFile">
+	        <item>English Female w/o Fax Tone</item> <!-- PP30-2.5 -->	
+	        <item>English Male w/ Fax Tone</item> <!-- pp30-2.2 -->
+	        <item>English Female w/ Fax Tone</item> <!-- pp30-2.3 -->
+	        <item>English Female and Male w/ Fax Tone</item> <!-- PP30-2.6 -->
+	    </string-array>
+	<string name="HistoryViewPrompt">Choose Default History View</string>
+	<string-array name="HistoryViewOption">
+	        <item>Historical List View</item> 	
+	        <item>Historical Live View</item> 
+	    </string-array>
+
+	
+	
+	
+	
+	
+    <string name="StartTime">Start Time</string>
+    <string name="GsmSignalStrength">GSM Signal Strength (dBm)</string>
+    <string name="GsmBitErrorRate">GSM Bit Error Rate</string>
+    <string name="CdmaSignalStrength">CDMA Signal Strength</string>
+    <string name="EvdoRssi">EVDO RSSI</string>
+    <string name="EvdoSnr">EVDO SNR</string>
+    <string name="LteSignalStrength">LTE Signal Strength</string>
+    <string name="DataServiceState">Data Service State</string>
+    <string name="ServiceState">Service State</string>
+    <string name="CallStatus">Call Statue</string>
+    <string name="GlobalCellId">Global Cell ID</string>   
+    <string name="Latitude">Latitude</string>
+    <string name="Longitude">Longitude</string>
+    <string name="Altitude">Altitude</string>
+    <string name="WiFiEnabled">WIFI Enabled</string>
+    <string name="WiFiSignalStrength">WiFi Signal Strength</string>
+    <string name="WiFiLinkSpeed">WiFi Link Speed</string>
+    <string name="WiFiLinkMAC">WiFi Link MAC</string>
+    <string name="WiFiLinkSSID">WiFi Link SSID</string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="Imsi">IMSI</string>
+    <string name="Imei">IMEI</string>
+    <string name="Battery">Battery Level</string>
+    <string name="AvailableMemory">Available Memory</string>
+    <string name="InLowMemoryMode">In Low Memeory Mode</string>
+    <string name="PhoneType">Phone Type</string>
+    <string name="NetworkType">Network Type</string>
+    <string name="SimOperator">SIM Operator</string>
+    <string name="Manufacturer">Manufacturer</string>
+    <string name="Model">Model</string>
+    <string name="IsRoaming">Is Network Roaming</string>
+    <string name="SoftwareVersion">"Software Version</string>
+    <string name="BuildVersion">Build Version</string>
+    <string name="SpeedTestTimeDiff">Speed Test Download Time (sec)</string>
+    <string name="SpeedTestKB">KiloBytes Transferred</string>
+    <string name="SpeedTestKBPerSec">Speed Test KB/Sec</string>
+    <string name="MosUp">"MOS Up Link</string>
+    <string name="MosDown">MOS Down Link</string>
+    <string name="UpLinkMetrics">Uplink Metrics</string>
+    <string name="DownLinkMetrics">Downlink Metrics</string>	
+	
+
+		    
+	<string name="HistoryListViewOption1Prompt">Choose History List View Option 1</string>
+	<string name="HistoryListViewOption2Prompt">Choose History List View Option 2</string>
+	<string name="HistoryListViewOption3Prompt">Choose History List View Option 3</string>
+	
+	
+	<string name="tosInvalidLen">TOS is a 8 bit binary number.  Example: 01100000</string> 
+	<string name="outboundPortInvalid">Outbound Port value is invalid.  Range[1000-90000] Default: 5060</string> 
+	<string name="registrationIntervalInvalid">Registration Interval value is invalid.  Range[1000-90000] Default: 3600</string>  
+	<string name="mediaPortInvalid">Media Port value is invalid.  Range[1000-90000] Default: 5000-12000</string>      
+	<string name="registrationPortInvalid">Registration Port value is invalid.  Range[1000-90000] Default: 5060</string> 
+	<string name="proxyPortInvalid">Proxy Port value is invalid.  Range[1000-90000] Default: 5060</string> 
+	<string name="proxyRequired">Proxy IP/Host is required in order to run.</string> 
+	<string name="userNameRequired">SIP User Name is required in order to run.</string> 
+	<string name="startSvr">Starting PPSE(a) Server.</string>  
+	<string name="stopSvr">Stopping PPSE(a) Server.</string>  
+	<string name="stopReg">Registration Status.</string>    
+	<string name="stopCurrCall">Current Call status.</string>   
+	<string name="showDebug">Show Debug View</string>      
+	<string name="showHistory">Show History View</string>      
+	<string name="showHistoryDetail">Show Live View</string>      
+	<color name="white_background">#FFFFFF</color>    
+	<color name="green_background">#007700</color>
+    <string name="main_no_items">No call history to display</string>
+    <string name="invalid_license">Expired License</string>
+    <string name="collectRateInvalid">Phone Status Collection Rate value is invalid.  Range[5-3600] Default: 30</string> 
+    <string name="transferRateInvalid">Phone Status Transfer Rate value is invalid.  Range[30-3600] Default: 300</string> 
+    <string name="svrStopped">Server State: STOPPED</string> 
+    <string name="phoneServiceStarted">PP30 Lite(a) Service is started.</string> 
+    <string name="svrRunning">Server State: RUNNING</string>
+    <string name="isSipLicensed">yes</string>  
+    <string name="gsmSlaSigInvalid">GSM Signal Strength dBm Invalid. Range[-113...-89]</string> 
+    <string name="speedKBPSInvalid">Speed Test KB/Sec Invalid. Range[1...10000]</string> 
+    <string name="batteryInvalid">Battery Level % Invalid. Range[1...100]</string>
+    
+    <string name="CodecPrompt">Choose Codec</string>
+    	<string-array name="CodecList">
+	        <item>AMR-WB</item> 
+	        <item>AMR</item>
+	        <item>G.711Mulaw</item>  
+	        <item>G.711Alaw</item>
+	    </string-array>
+	    
+</resources>

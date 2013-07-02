@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="@string/showDebug" android:id="@+id/showDebugStatus"></item>
+<item android:title="@string/showHistory" android:id="@+id/showHistoryStatus"></item>
+</menu>

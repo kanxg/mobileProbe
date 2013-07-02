@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView 
+		android:id="@+id/UAStatusTxt" 
+		android:text="Registration Status" 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:background="@color/LabelBackground" 
+		android:layout_alignParentTop="true">
+	</TextView>
+	<TextView 
+		android:id="@+id/CurrentCallStatusTxt" 
+		android:text="Call Status" 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:background="@color/LabelBackground" 
+		android:layout_below="@id/UAStatusTxt">
+	</TextView>
+	<TextView 
+		android:id="@+id/SvrStatusTxt" 
+		android:text="Server State: STOPPED" 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:background="@color/LabelBackground" 
+		android:layout_below="@id/CurrentCallStatusTxt">
+	</TextView>
+	
+	<!-- Debug History View -->
+	<ScrollView 
+		android:id="@+id/ScrollDebug" 
+		xmlns:android="http://schemas.android.com/apk/res/android" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_below="@id/SvrStatusTxt">
+		<LinearLayout android:id="@+id/LinearLayout01" 
+		              android:layout_height="wrap_content" 
+		              android:orientation="vertical" 
+	                  android:layout_width="fill_parent">
+			<TextView android:id="@+id/DebugTxt" 
+			          android:text="Status Text Follows" 
+			          android:layout_height="fill_parent" 
+			          android:layout_width="fill_parent"></TextView>
+		</LinearLayout> 
+	</ScrollView>
+	
+	<!-- Live Detailed History View -->
+ 	<ScrollView 
+		android:id="@+id/ScrollHistoryDetails" 
+		xmlns:android="http://schemas.android.com/apk/res/android" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:layout_alignParentBottom="true" 
+		android:layout_below="@+id/SvrStatusTxt"> 
+
+	  <LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1">
+	  
+		<TextView android:layout_width="fill_parent" 
+				android:text="--- Live Call Info ---\n" 
+				android:id="@+id/CallInfoTxtView" 
+				android:layout_height="wrap_content"
+	        	android:layout_weight="1"></TextView>
+		<TextView android:layout_width="fill_parent" 
+				android:text="--- DownLink Metrics ---\n" 
+				android:id="@+id/DownLinkTxtView" 
+				android:layout_height="wrap_content"
+	        	android:layout_weight="1"></TextView>
+		<TextView android:layout_width="fill_parent" 
+				android:text="--- UpLink Metrics ---\n" 
+				android:id="@+id/UpLinkTxtView" 
+				android:layout_height="wrap_content"
+	        	android:layout_weight="1"></TextView>
+		</LinearLayout>
+	</ScrollView>    	
+	<!-- History List Item View -->
+	<ListView
+	    android:id="@+id/android:list"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_below="@id/SvrStatusTxt"
+	    android:transcriptMode="alwaysScroll"
+	    />
+	<!-- Shown if no other view is present -->
+	<TextView
+	    android:id="@+id/android:empty"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text=""
+		android:layout_alignParentBottom="true"
+		android:layout_below="@id/SvrStatusTxt"/>
+</RelativeLayout>

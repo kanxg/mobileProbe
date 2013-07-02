@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView 
+		android:id="@+id/UAStatusTxt" 
+		android:text="Registration Status" 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:background="@color/LabelBackground" 
+		android:layout_alignParentTop="true">
+	</TextView>
+	<TextView 
+		android:id="@+id/CurrentCallStatusTxt" 
+		android:text="Call Status" 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:background="@color/LabelBackground" 
+		android:layout_below="@id/UAStatusTxt">
+	</TextView>
+<ScrollView 
+	android:id="@+id/ScrollDebug" 
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:layout_alignParentBottom="true"
+	android:layout_below="@id/CurrentCallStatusTxt">
+	<LinearLayout android:id="@+id/LinearLayout01" 
+	              android:layout_height="wrap_content" 
+	              android:orientation="vertical" 
+                  android:layout_width="fill_parent">
+		<TextView android:id="@+id/CallStatusTxt" 
+		          android:text="Status Text Follows" 
+		          android:layout_height="fill_parent" 
+		          android:layout_width="fill_parent"></TextView>
+	</LinearLayout> 
+</ScrollView>
+<ScrollView 
+	android:id="@+id/ScrollHistory" 
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:layout_alignParentBottom="true"
+	android:background="@color/green_background" 
+	android:layout_below="@id/CurrentCallStatusTxt" >
+	<LinearLayout android:id="@+id/LinearLayout02" 
+				  android:layout_height="wrap_content" 
+				  android:orientation="vertical" 
+				  android:layout_width="fill_parent">
+		<TextView android:id="@+id/HistoryTxt" 
+		          android:text="History Text Follows" 
+		          android:layout_height="fill_parent" 
+		          android:layout_width="fill_parent"></TextView>
+	</LinearLayout> 
+</ScrollView>
+</RelativeLayout>

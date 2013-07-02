@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<LinearLayout android:id="@+id/LinearLayout01" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:orientation="horizontal"  
+			android:layout_alignParentTop="true">
+		<Button android:id="@+id/MapItBtn" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" android:background="@drawable/compass_white"></Button>
+	</LinearLayout>		
+ 	<ScrollView 
+		android:id="@+id/ScrollHistoryDetails" 
+		xmlns:android="http://schemas.android.com/apk/res/android" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:layout_alignParentBottom="true" 
+		android:layout_below="@+id/LinearLayout01"> 
+
+	  <LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1">
+	  
+		<TextView android:layout_width="fill_parent" 
+				android:text="--- Call Info ---\n" 
+				android:id="@+id/CallInfoTxtView" 
+				android:layout_height="wrap_content"
+	        	android:layout_weight="1"></TextView>
+		<TextView android:layout_width="fill_parent" 
+				android:text="--- DownLink Metrics ---\n" 
+				android:id="@+id/DownLinkTxtView" 
+				android:layout_height="wrap_content"
+	        	android:layout_weight="1"></TextView>
+		<TextView android:layout_width="fill_parent" 
+				android:text="--- UpLink Metrics ---\n" 
+				android:id="@+id/UpLinkTxtView" 
+				android:layout_height="wrap_content"
+	        	android:layout_weight="1"></TextView>
+		</LinearLayout>
+	</ScrollView>
+
+</RelativeLayout>

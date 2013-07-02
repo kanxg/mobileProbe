@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<!--  <item android:title="Save" android:id="@+id/save" android:icon="@drawable/save_white"></item>-->
+<item android:title="Run" android:id="@+id/run" android:icon="@drawable/run_white"></item>
+<item android:title="Stop" android:id="@+id/stop" android:icon="@drawable/stop_white"></item>
+<item android:title="Clear Status" android:id="@+id/clearStatus" android:icon="@drawable/erase_white"></item>
+<item android:title="Speed Test" android:id="@+id/speedTest" android:icon="@drawable/speed_test"></item>
+</menu>

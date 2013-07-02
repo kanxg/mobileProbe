@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/ScrollView01" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent">
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="wrap_content" android:orientation="vertical" android:layout_width="fill_parent">
+
+<!-- Version -->
+<TextView android:layout_height="wrap_content" android:id="@+id/VersionTxt" android:text="@string/app_name_details" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+
+
+<!-- Phone Status Agent -->
+<TextView android:layout_height="wrap_content" android:id="@+id/PhoneStatusTxt" android:text="Mobile Event Tracker" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/EnablePhoneStatusAgentChkBox" android:text="Enable Mobile Event Tracker"></CheckBox>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/EnablePhoneStatusTimeCollectChkBox" android:text="Track Events Based on Collection Rate"></CheckBox>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/EnablePhoneStatusServiceCollectChkBox" android:text="Track Events Based on Phone Events"></CheckBox>
+<TextView android:id="@+id/PhoneStatusCollectRateTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Collection Frequency (sec):"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusCollectRateEdit" android:text="90" android:inputType="number"></EditText>
+<TextView android:id="@+id/PhoneStatusTransferRateTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Transfer Frequency (sec):"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusTransferRateEdit" android:text="300" android:inputType="number"></EditText>
+<TextView android:id="@+id/PhoneStatusStopServiceTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Stop Collection after (min):"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusStopServiceEdit" android:text="90" android:inputType="number"></EditText>
+<TextView android:id="@+id/PhoneStatusURLTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Collecting URI:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusURIEdit" android:text="http://134.64.202.98:8080/MobileManager/" android:inputType="textUri"></EditText>
+
+<!-- Speed Test Config -->
+<TextView android:layout_height="wrap_content" android:id="@+id/BreakTxt" android:text="" android:background="@color/LabelBackground" android:layout_width="fill_parent"></TextView>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/EnablePhoneStatusSpeedTestChkBox" android:enabled="true" android:checked="false" android:text="Enable Speed Test"></CheckBox>
+<TextView android:id="@+id/PhoneStatusFtpSiteTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alternative Speed Test FTP Site:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusFtpSiteEdit" android:text="90" android:inputType="text"></EditText>
+<TextView android:id="@+id/PhoneStatusFtpLoginTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FTP Login:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusFtpLoginEdit" android:text="30" android:inputType="text"></EditText>
+<TextView android:id="@+id/PhoneStatusFtpPWTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FTP Password:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusFtpPWEdit" android:text="20" android:inputType="text"></EditText>
+<TextView android:id="@+id/PhoneStatusFtpFileNameTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FTP Filename:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/PhoneStatusFtpFileNameEdit" android:text="20" android:inputType="text"></EditText>
+<TextView android:layout_height="wrap_content" android:id="@+id/BreakTxt" android:text="" android:background="@color/LabelBackground" android:layout_width="fill_parent"></TextView>
+
+<!-- Advanced history tab layout configuration -->
+<TextView android:layout_height="wrap_content" android:id="@+id/HistoryTabTxt" android:text="History Configuration" android:background="@color/LabelBackground" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+<Spinner android:id="@+id/HistoryDefaultViewSpinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:entries="@array/HistoryViewOption" android:prompt="@string/HistoryViewPrompt" />
+<TextView android:id="@+id/HistOpt1Txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="History List View Option 1:"></TextView>
+<Spinner android:id="@+id/HistoryListViewOption1Spinner" android:layout_width="fill_parent" android:layout_height="wrap_content"  android:prompt="@string/HistoryListViewOption1Prompt" />
+<TextView android:id="@+id/HistOpt2Txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="History List View Option 2:"></TextView>
+<Spinner android:id="@+id/HistoryListViewOption2Spinner" android:layout_width="fill_parent" android:layout_height="wrap_content"  android:prompt="@string/HistoryListViewOption2Prompt" />
+<TextView android:id="@+id/HistOpt3Txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="History List View Option 3:"></TextView>
+<Spinner android:id="@+id/HistoryListViewOption3Spinner" android:layout_width="fill_parent" android:layout_height="wrap_content"  android:prompt="@string/HistoryListViewOption3Prompt" />
+
+<TextView android:id="@+id/HistorySlaGsmSigTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GSM Signal Strength SLA:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/HistorySlaGsmSigEdit" android:text="-103" android:inputType="number"></EditText>
+<TextView android:id="@+id/HistorySlaSpeedKBPSTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Speed Test KB/Sec SLA:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/HistorySlaSpeedKBPSEdit" android:text="15" android:inputType="numberSigned"></EditText>
+<TextView android:id="@+id/HistorySlaInLowMemTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="In Low Memory SLA:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/HistorySlaInLowMemEdit" android:text="Yes" android:inputType="text"></EditText>
+<TextView android:id="@+id/HistorySlaBatteryTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Battery Level % SLA:"></TextView>
+<EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/HistorySlaBatteryEdit" android:text="7" android:inputType="number"></EditText>
+
+</LinearLayout>
+</ScrollView>
