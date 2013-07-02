@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.xingang.androidpp30"
+      android:versionCode="3"
+      android:versionName="2.2"> 
+    <uses-sdk android:minSdkVersion="10"/>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" /> 
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
+    
+    <application android:label="@string/app_name"
+    			 android:icon="@drawable/icon"
+                 android:debuggable="true">
+        <uses-library android:name="com.google.android.maps" />
+        <service android:name="PhoneService"></service>
+        <activity android:name=".AndroidPP30"
+                  android:label="@string/app_name"
+                  android:screenOrientation="nosensor"
+                  android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+ 		<activity android:name="StatusActivity"
+                  android:screenOrientation="nosensor"></activity>  
+		<activity android:name="SettingsActivity"
+                  android:screenOrientation="nosensor"></activity>
+	    <activity android:name="AdvanceActivity"
+                  android:screenOrientation="nosensor"></activity> 
+	    <activity android:name="MapItActivity" 
+                  android:screenOrientation="nosensor"></activity>  
+ 		<activity android:name="HistoryListActivity" 
+                  android:screenOrientation="nosensor"></activity>   
+ 		<activity android:name="HistoryDetailsActivity" 
+                  android:screenOrientation="nosensor"></activity> 
+        <receiver android:name=".ServiceReceiver">
+		    <intent-filter>
+		      <action android:name="android.intent.action.PHONE_STATE" />
+		    </intent-filter>   
+	    </receiver>          
+    </application>
+</manifest> 
